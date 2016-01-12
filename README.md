@@ -1,2 +1,2 @@
 # Machine-Learning
-This repository included Machine Learning codes.
+This repository includes Machine Learning codes.
