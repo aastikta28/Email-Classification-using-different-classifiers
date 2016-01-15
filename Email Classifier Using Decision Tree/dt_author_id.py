@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """ 
-    This is the code to accompany the Lesson 3 (decision tree) mini-project.
+    Decision tree mini-project.
 
     Use a Decision Tree to identify emails from the Enron corpus by author:    
     Sara has label 0
@@ -10,9 +10,10 @@
     
 import sys
 from time import time
-sys.path.append("../tools/")
+sys.path.append("/")
 from email_preprocess import preprocess
-
+from sklearn import tree
+from sklearn.metrics import accuracy_score
 
 ### features_train and features_test are the features for the training
 ### and testing datasets, respectively
@@ -24,7 +25,11 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
-
+clf = tree.DecisionTreeClassifier(min_samples_split=40)
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
+accuracy = accuracy_score(labels_test, pred)
+print(accuracy)
 
 #########################################################
 
