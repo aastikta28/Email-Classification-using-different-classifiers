@@ -54,6 +54,8 @@ def preprocess(words_file = "word_data.pkl", authors_file="email_authors.pkl"):
     ### feature selection, because text is super high dimensional and 
     ### can be really computationally chewy as a result
     selector = SelectPercentile(f_classif, percentile=10)
+    # when percentile=1 then only 1% of features are selected hence less comples decision tree is formed
+    #selector = SelectPercentile(f_classif, percentile=1)
     selector.fit(features_train_transformed, labels_train)
     features_train_transformed = selector.transform(features_train_transformed).toarray()
     features_test_transformed  = selector.transform(features_test_transformed).toarray()
