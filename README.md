@@ -1,2 +1,2 @@
 # Machine-Learning
-This repository includes Machine Learning codes.
+This repository includes mini codes on Machine Learning.
